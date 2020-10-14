@@ -37,9 +37,7 @@ const search = document.getElementById('search'),
         const result = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
         const data = await result.json();
         const meal = data.meals[0];
-
         addMealToDOM(meal);
-        console.log(data);
     }
 
     function addMealToDOM(meal){
@@ -72,9 +70,13 @@ const search = document.getElementById('search'),
     }
 
     async function randomMeal() {
+        mealsEl.innerHTML = '';
+        reasultHeading.innerHTML = '';
+    
         const result = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
         const data = await result.json();
-        // console.log(data);
+        const meal = data.meals[0];
+        addMealToDOM(meal);
     }
 
 
